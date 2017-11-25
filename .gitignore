@@ -1,4 +1,4 @@
-*
-!/src
-!README.md
-!.gitignore
+.idea/
+JavaEnhance.iml
+lib/
+out/
