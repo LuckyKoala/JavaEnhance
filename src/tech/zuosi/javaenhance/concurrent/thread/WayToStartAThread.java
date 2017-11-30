@@ -1,9 +1,9 @@
-package tech.zuosi.javaenhance.concurrent;
+package tech.zuosi.javaenhance.concurrent.thread;
 
 /**
  * Created by iwar on 2017/6/23.
  */
-public class ThreadMain {
+public class WayToStartAThread {
     public static void main(String[] args) {
         new Thread(new HelloRunnable()).start();
         new Thread(new HelloThread()).start();
