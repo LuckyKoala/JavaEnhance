@@ -1,4 +1,4 @@
-package tech.zuosi.javaenhance.concurrent.liveness;
+package tech.zuosi.javaenhance.concurrent;
 
 public class Deadlock {
     static class Friend {

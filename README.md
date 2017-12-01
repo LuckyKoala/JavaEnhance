@@ -3,7 +3,7 @@
 # Current learning
 
 * I/O
-* Concurrent
+* ~~Concurrent~~
 * Design pattern
 * Stream
 * Classloading
