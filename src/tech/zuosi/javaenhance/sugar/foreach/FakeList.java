@@ -5,6 +5,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * A class implement like the class used in {@link java.util.Collections#nCopies(int, Object) nCopies},
+ *   but simpler, should only use for test.
+ */
 public class FakeList<E> implements Iterable<E> {
     private final int size;
     private final E VALUE;

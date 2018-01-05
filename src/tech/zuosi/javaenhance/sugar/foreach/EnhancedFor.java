@@ -1,5 +1,6 @@
 package tech.zuosi.javaenhance.sugar.foreach;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,10 +19,14 @@ public class EnhancedFor {
     }
 
     public static void main(String[] args) {
-        FakeList<String> list = new FakeList<>("Hello", 5);
+        //Use a instance of custom class to test
+        FakeList<String> list = new FakeList<>("Hello from fake list", 5);
         for(String str : list) {
             System.out.println(str);
         }
-        list.forEach(System.out::println);
+        //list.forEach(System.out::println);
+        //Use a instance of class which is returned by method implemented in java.util.Collections package
+        List<String> nCopies = Collections.nCopies(5, "Hello from nCopies");
+        nCopies.forEach(System.out::println);
     }
 }
