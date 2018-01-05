@@ -22,5 +22,6 @@ public class EnhancedFor {
         for(String str : list) {
             System.out.println(str);
         }
+        list.forEach(System.out::println);
     }
 }

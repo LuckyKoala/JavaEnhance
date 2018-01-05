@@ -5,11 +5,8 @@ import tech.zuosi.javaenhance.stream.sample.Track;
 
 import java.util.List;
 import java.util.Set;
-import java.util.function.BinaryOperator;
-import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toSet;
-import static tech.zuosi.javaenhance.util.TestUtil.assertEquals;
 
 /**
  * Created by iwar on 2017/6/7.
