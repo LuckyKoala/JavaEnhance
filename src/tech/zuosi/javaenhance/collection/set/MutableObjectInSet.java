@@ -1,4 +1,4 @@
-package tech.zuosi.javaenhance.collection;
+package tech.zuosi.javaenhance.collection.set;
 
 import java.util.HashSet;
 import java.util.Set;
