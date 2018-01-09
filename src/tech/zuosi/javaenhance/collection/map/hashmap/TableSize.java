@@ -4,8 +4,8 @@ import static tech.zuosi.javaenhance.collection.map.hashmap.BinaryFormatter.bina
 
 public class TableSize {
     static final int MAXIMUM_CAPACITY = 1 << 30;
-    private static final int A = 0x00000011; //aka 17
-    private static final int B = 0x00000003; //aka 3
+    private static final int A = 0b00000000_00000000_00000000_00010001; //aka 17
+    private static final int B = 0b00000000_00000000_00000000_00000011; //aka 3
 
     /*
     Note:
