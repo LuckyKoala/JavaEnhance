@@ -233,4 +233,201 @@ public class TreeNode {
             }
         }
     }
+
+    /**
+     * Removes the given node, that must be present before this call.
+     * This is messier than typical red-black deletion code because we
+     * cannot swap the contents of an interior node with a leaf
+     * successor that is pinned by "next" pointers that are accessible
+     * independently during traversal. So instead we swap the tree
+     * linkages. If the current tree appears to have too few nodes,
+     * the bin is converted back to a plain bin. (The test triggers
+     * somewhere between 2 and 6 nodes, depending on tree structure).
+     */
+    final void removeTreeNode(HashMap<K,V> map, HashMap.Node<K,V>[] tab,
+                              boolean movable) {
+        int n;
+        if (tab == null || (n = tab.length) == 0)
+            return;
+        int index = (n - 1) & hash;
+        HashMap.TreeNode<K,V> first = (HashMap.TreeNode<K,V>)tab[index], root = first, rl;
+        HashMap.TreeNode<K,V> succ = (HashMap.TreeNode<K,V>)next, pred = prev;
+        if (pred == null)
+            tab[index] = first = succ;
+        else
+            pred.next = succ;
+        if (succ != null)
+            succ.prev = pred;
+        if (first == null)
+            return;
+        if (root.parent != null)
+            root = root.root();
+        if (root == null || root.right == null ||
+                (rl = root.left) == null || rl.left == null) {
+            tab[index] = first.untreeify(map);  // too small
+            return;
+        }
+        HashMap.TreeNode<K,V> p = this, pl = left, pr = right, replacement;
+        if (pl != null && pr != null) {
+            HashMap.TreeNode<K,V> s = pr, sl;
+            while ((sl = s.left) != null) // find successor
+                s = sl;
+            boolean c = s.red; s.red = p.red; p.red = c; // swap colors
+            HashMap.TreeNode<K,V> sr = s.right;
+            HashMap.TreeNode<K,V> pp = p.parent;
+            if (s == pr) { // p was s's direct parent
+                p.parent = s;
+                s.right = p;
+            }
+            else {
+                HashMap.TreeNode<K,V> sp = s.parent;
+                if ((p.parent = sp) != null) {
+                    if (s == sp.left)
+                        sp.left = p;
+                    else
+                        sp.right = p;
+                }
+                if ((s.right = pr) != null)
+                    pr.parent = s;
+            }
+            p.left = null;
+            if ((p.right = sr) != null)
+                sr.parent = p;
+            if ((s.left = pl) != null)
+                pl.parent = s;
+            if ((s.parent = pp) == null)
+                root = s;
+            else if (p == pp.left)
+                pp.left = s;
+            else
+                pp.right = s;
+            if (sr != null)
+                replacement = sr;
+            else
+                replacement = p;
+        }
+        else if (pl != null)
+            replacement = pl;
+        else if (pr != null)
+            replacement = pr;
+        else
+            replacement = p;
+        if (replacement != p) {
+            HashMap.TreeNode<K,V> pp = replacement.parent = p.parent;
+            if (pp == null)
+                root = replacement;
+            else if (p == pp.left)
+                pp.left = replacement;
+            else
+                pp.right = replacement;
+            p.left = p.right = p.parent = null;
+        }
+
+        HashMap.TreeNode<K,V> r = p.red ? root : balanceDeletion(root, replacement);
+
+        if (replacement == p) {  // detach
+            HashMap.TreeNode<K,V> pp = p.parent;
+            p.parent = null;
+            if (pp != null) {
+                if (p == pp.left)
+                    pp.left = null;
+                else if (p == pp.right)
+                    pp.right = null;
+            }
+        }
+        if (movable)
+            moveRootToFront(tab, r);
+    }
+
+    static <K,V> HashMap.TreeNode<K,V> balanceDeletion(HashMap.TreeNode<K,V> root,
+                                                       HashMap.TreeNode<K,V> x) {
+        for (HashMap.TreeNode<K,V> xp, xpl, xpr;;)  {
+            if (x == null || x == root)
+                return root;
+            else if ((xp = x.parent) == null) {
+                x.red = false;
+                return x;
+            }
+            else if (x.red) {
+                x.red = false;
+                return root;
+            }
+            else if ((xpl = xp.left) == x) {
+                if ((xpr = xp.right) != null && xpr.red) {
+                    xpr.red = false;
+                    xp.red = true;
+                    root = rotateLeft(root, xp);
+                    xpr = (xp = x.parent) == null ? null : xp.right;
+                }
+                if (xpr == null)
+                    x = xp;
+                else {
+                    HashMap.TreeNode<K,V> sl = xpr.left, sr = xpr.right;
+                    if ((sr == null || !sr.red) &&
+                            (sl == null || !sl.red)) {
+                        xpr.red = true;
+                        x = xp;
+                    }
+                    else {
+                        if (sr == null || !sr.red) {
+                            if (sl != null)
+                                sl.red = false;
+                            xpr.red = true;
+                            root = rotateRight(root, xpr);
+                            xpr = (xp = x.parent) == null ?
+                                    null : xp.right;
+                        }
+                        if (xpr != null) {
+                            xpr.red = (xp == null) ? false : xp.red;
+                            if ((sr = xpr.right) != null)
+                                sr.red = false;
+                        }
+                        if (xp != null) {
+                            xp.red = false;
+                            root = rotateLeft(root, xp);
+                        }
+                        x = root;
+                    }
+                }
+            }
+            else { // symmetric
+                if (xpl != null && xpl.red) {
+                    xpl.red = false;
+                    xp.red = true;
+                    root = rotateRight(root, xp);
+                    xpl = (xp = x.parent) == null ? null : xp.left;
+                }
+                if (xpl == null)
+                    x = xp;
+                else {
+                    HashMap.TreeNode<K,V> sl = xpl.left, sr = xpl.right;
+                    if ((sl == null || !sl.red) &&
+                            (sr == null || !sr.red)) {
+                        xpl.red = true;
+                        x = xp;
+                    }
+                    else {
+                        if (sl == null || !sl.red) {
+                            if (sr != null)
+                                sr.red = false;
+                            xpl.red = true;
+                            root = rotateLeft(root, xpl);
+                            xpl = (xp = x.parent) == null ?
+                                    null : xp.left;
+                        }
+                        if (xpl != null) {
+                            xpl.red = (xp == null) ? false : xp.red;
+                            if ((sl = xpl.left) != null)
+                                sl.red = false;
+                        }
+                        if (xp != null) {
+                            xp.red = false;
+                            root = rotateRight(root, xp);
+                        }
+                        x = root;
+                    }
+                }
+            }
+        }
+    }
 }
