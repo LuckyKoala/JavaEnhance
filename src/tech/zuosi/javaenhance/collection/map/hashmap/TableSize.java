@@ -1,6 +1,6 @@
 package tech.zuosi.javaenhance.collection.map.hashmap;
 
-import static tech.zuosi.javaenhance.collection.map.hashmap.BinaryFormatter.binaryStringFor;
+import static tech.zuosi.javaenhance.util.BinaryFormatter.binaryStringFor;
 
 public class TableSize {
     static final int MAXIMUM_CAPACITY = 1 << 30;

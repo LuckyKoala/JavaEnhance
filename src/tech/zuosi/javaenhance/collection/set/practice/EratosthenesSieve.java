@@ -1,4 +1,4 @@
-package tech.zuosi.javaenhance.collection.set;
+package tech.zuosi.javaenhance.collection.set.practice;
 
 import java.util.BitSet;
 

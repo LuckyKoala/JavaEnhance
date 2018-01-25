@@ -2,7 +2,7 @@ package tech.zuosi.javaenhance.collection.map.hashmap;
 
 import java.util.Objects;
 
-import static tech.zuosi.javaenhance.collection.map.hashmap.BinaryFormatter.binaryStringFor;
+import static tech.zuosi.javaenhance.util.BinaryFormatter.binaryStringFor;
 
 public class HashSpread {
     /*
@@ -39,7 +39,7 @@ public class HashSpread {
             System.out.println("For object -> " + key.toString());
             System.out.println("hashCode:  " + binaryStringFor(hashCode));
             System.out.println("shift to:  " + binaryStringFor(hashCodeAfterShift));
-            System.out.println("result is: " +binaryStringFor(result));
+            System.out.println("result is: " + binaryStringFor(result));
         }
         return 0;
     }
