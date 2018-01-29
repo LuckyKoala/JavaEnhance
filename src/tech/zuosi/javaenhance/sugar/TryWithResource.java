@@ -1,4 +1,4 @@
-package tech.zuosi.javaenhance.sugar.trywithresource;
+package tech.zuosi.javaenhance.sugar;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
