@@ -7,6 +7,7 @@ import java.util.Set;
  * Created by iwar on 2017/6/30.
  */
 public class MutableObjectInSet {
+    //This will break collection
     public static void main(String[] args) {
         Set<Set> set = new HashSet();
         Set<String> stringSet = new HashSet<>();
@@ -14,6 +15,7 @@ public class MutableObjectInSet {
 
         stringSet.add("hello");
         set.add(set);
+        //set.hashCode(); //which will lead to StackOverflowError
         set.add(stringSet);
         set.add(anotherStringSet);
         //Change content after it is added to set;
