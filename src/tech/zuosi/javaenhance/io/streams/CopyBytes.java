@@ -1,6 +1,5 @@
 package tech.zuosi.javaenhance.io.streams;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,12 +9,10 @@ public class CopyBytes {
 
         FileInputStream in = null;
         FileOutputStream out = null;
-        String src = "E:"+ File.separator+"io"+File.separator+"src"+File.separator+"a.txt";
-        String dst = "E:"+ File.separator+"io"+File.separator+"dst"+File.separator+"a.txt";
 
         try {
-            in = new FileInputStream(src);
-            out = new FileOutputStream(dst);
+            in = new FileInputStream("xanadu.txt");
+            out = new FileOutputStream("outagain.txt");
             int c;
 
             while ((c = in.read()) != -1) {
