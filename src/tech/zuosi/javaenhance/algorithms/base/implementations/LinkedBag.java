@@ -1,4 +1,6 @@
-package tech.zuosi.javaenhance.algorithms.adt;
+package tech.zuosi.javaenhance.algorithms.base.implementations;
+
+import tech.zuosi.javaenhance.algorithms.base.interfaces.Bag;
 
 /**
  * Created by luckykoala on 18-3-16.

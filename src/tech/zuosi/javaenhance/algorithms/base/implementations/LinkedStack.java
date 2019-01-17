@@ -1,4 +1,6 @@
-package tech.zuosi.javaenhance.algorithms.adt;
+package tech.zuosi.javaenhance.algorithms.base.implementations;
+
+import tech.zuosi.javaenhance.algorithms.base.interfaces.Stack;
 
 import java.util.NoSuchElementException;
 
