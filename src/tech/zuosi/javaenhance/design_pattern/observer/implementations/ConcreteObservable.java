@@ -1,4 +1,7 @@
-package tech.zuosi.javaenhance.design_pattern.observer;
+package tech.zuosi.javaenhance.design_pattern.observer.implementations;
+
+import tech.zuosi.javaenhance.design_pattern.observer.interfaces.Observable;
+import tech.zuosi.javaenhance.design_pattern.observer.interfaces.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package tech.zuosi.javaenhance.design_pattern.observer;
+package tech.zuosi.javaenhance.design_pattern.observer.interfaces;
 
 public interface Observable {
     void addObserver(Observer observer);
