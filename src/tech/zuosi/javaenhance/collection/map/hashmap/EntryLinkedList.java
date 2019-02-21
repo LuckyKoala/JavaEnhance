@@ -7,6 +7,7 @@ public class EntryLinkedList {
     //insert breakpoint and debug to see underlying structure of HashMap
     //instances that return same hash code in map will make hash table fall back to linked list which
     //  can lead to performance problem
+    //如果多个作为键的对象返回相同的hashCode，HashMap内部对于同一hashCode的值结点将会转化为链表，因此对性能造成影响
     public static void main(String[] args) {
         SameHashCode a = new SameHashCode();
         SameHashCode b = new SameHashCode();
