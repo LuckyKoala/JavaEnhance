@@ -8,7 +8,7 @@ package tech.zuosi.javaenhance.offer_questions.base.duplication_in_array;
  *  最坏O(n)  最后一次比较才找到重复数字
  * 空间复杂度 O(1) 交换位置
  */
-public class ThirdTryWithReordering {
+public class WithReordering {
     public static int duplicateNumberOf(int[] arr) {
         //将数字放到对应的位置，如果对应的位置已经有对应的数字，则返回重复数字
         // 如果对应的位置和数字不对应，则交换两个数字的位置

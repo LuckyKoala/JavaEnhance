@@ -10,7 +10,7 @@ import java.util.Arrays;
  *  最坏O(nlog(n))  最后两个数字相同
  * 空间复杂度 O(1) 原地排序
  */
-public class SecondTryWithSorting {
+public class WithSorting {
     public static int duplicateNumberOf(int[] arr) {
         Arrays.sort(arr); //双分区点快排 时间复杂度O(nlog(n)) 空间复杂度O(1)?
         int lastVal = -1;

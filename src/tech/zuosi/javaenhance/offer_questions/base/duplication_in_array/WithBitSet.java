@@ -12,7 +12,7 @@ import java.util.BitSet;
  *  最坏O(n)  最后两个数字相同
  * 空间复杂度 O(n)
  */
-public class FirstTryWithBitSet {
+public class WithBitSet {
     public static int duplicateNumberOf(int[] arr) {
         BitSet bitSet = new BitSet(arr.length);
         for(int i : arr) {
