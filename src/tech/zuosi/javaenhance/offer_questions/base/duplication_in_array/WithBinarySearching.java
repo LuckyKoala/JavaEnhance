@@ -3,19 +3,22 @@ package tech.zuosi.javaenhance.offer_questions.base.duplication_in_array;
 /**
  * Created by luckykoala on 19-2-23.
  * 二分查找
+ * [NOTE] 不保证能找到，请看下面Main方法中两个测试用例，如果重复的数字分散在两侧，本算法无法找到
  * 把从0～n-1的数字从中间m分为两份，也就是0~m和m+1~n-1，
  *  如果0~m中的数字的数目超过m+1，则重复的数字肯定在前半部分，否则在后半部分。
  * 时间复杂度 O(nlogn)
  *  函数countInRange的时间复杂度为O(n)
  * 空间复杂度 O(1)
  */
-public class WithBinarySearching {
-    public static int duplicateNumberOf(int[] arr) {
+public class WithBinarySearching implements Solution {
+    public int duplicateNumberOf(int[] arr) {
+        if(arr == null) return -1;
+
         int start = 0;
         int end = arr.length-1;
 
         while(end >= start) {
-            int middle = start + (start+end)>>1; //取中间值
+            int middle = start + ((end-start)>>1); //取中间值
             int count = countInRange(arr, start, middle);
             if(end==start) {
                 if(count>1) return start;
@@ -39,9 +42,5 @@ public class WithBinarySearching {
             if(val >= start && val <= end) count++;
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(duplicateNumberOf(new int[]{2,3,1,0,2,5,3}));
     }
 }

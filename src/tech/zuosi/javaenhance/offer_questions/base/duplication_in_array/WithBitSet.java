@@ -12,8 +12,10 @@ import java.util.BitSet;
  *  最坏O(n)  最后两个数字相同
  * 空间复杂度 O(n)
  */
-public class WithBitSet {
-    public static int duplicateNumberOf(int[] arr) {
+public class WithBitSet implements Solution {
+    public int duplicateNumberOf(int[] arr) {
+        if(arr==null) return -1;
+
         BitSet bitSet = new BitSet(arr.length);
         for(int i : arr) {
             boolean found = bitSet.get(i); //之前是否已经找到过该数字？
@@ -21,9 +23,5 @@ public class WithBitSet {
             else bitSet.set(i); //未找到过，设置状态
         }
         return -1; //不应该出现，题意是必有重复数字
-    }
-
-    public static void main(String[] args) {
-        System.out.println(duplicateNumberOf(new int[]{2,3,1,0,2,5,3}));
     }
 }
