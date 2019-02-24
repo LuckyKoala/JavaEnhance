@@ -11,6 +11,7 @@ package tech.zuosi.javaenhance.offer_questions.base.duplication_in_array;
  * 空间复杂度 O(1)
  */
 public class WithBinarySearching implements Solution {
+    @Override
     public int duplicateNumberOf(int[] arr) {
         if(arr == null) return -1;
 

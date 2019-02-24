@@ -11,6 +11,7 @@ import java.util.Arrays;
  * 空间复杂度 O(1) 原地排序
  */
 public class WithSorting implements Solution {
+    @Override
     public int duplicateNumberOf(int[] arr) {
         if(arr==null) return -1;
         Arrays.sort(arr); //双分区点快排 时间复杂度O(nlog(n)) 空间复杂度O(1)?

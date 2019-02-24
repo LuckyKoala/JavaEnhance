@@ -13,6 +13,7 @@ import java.util.BitSet;
  * 空间复杂度 O(n)
  */
 public class WithBitSet implements Solution {
+    @Override
     public int duplicateNumberOf(int[] arr) {
         if(arr==null) return -1;
 
