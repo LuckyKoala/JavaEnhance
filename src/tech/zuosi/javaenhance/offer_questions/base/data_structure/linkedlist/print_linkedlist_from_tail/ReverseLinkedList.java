@@ -1,5 +1,7 @@
 package tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail;
 
+import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.Node;
+
 /**
  * Created by luckykoala on 19-2-27.
  * 反转链表再打印，需要修改链表结构
@@ -22,14 +24,8 @@ public class ReverseLinkedList {
         step.next = last;
         //打印
         while(step!=null) {
-            System.out.println(step.val);
+            System.out.print(step.val);
             step = step.next;
         }
     }
-
-    /*public static void main(String[] args) {
-        //1 - 2 - 3 - 4 - 5
-        Node first = new Node(1, new Node(2, new Node(3, new Node(4, new Node(5, null)))));
-        new WithRecursiveInvoke().print(first);
-    }*/
 }

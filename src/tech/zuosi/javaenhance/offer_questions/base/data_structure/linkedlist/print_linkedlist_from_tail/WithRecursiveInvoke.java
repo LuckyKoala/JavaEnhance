@@ -1,5 +1,7 @@
 package tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail;
 
+import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.Node;
+
 /**
  * Created by luckykoala on 19-2-27.
  * 递归调用，但可能导致函数调用栈溢出
@@ -13,6 +15,6 @@ public class WithRecursiveInvoke {
         //先打印下一节点
         print(first.next);
         //递归返回之后再打印当前节点
-        System.out.println(first.val);
+        System.out.print(first.val);
     }
 }

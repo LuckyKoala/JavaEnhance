@@ -1,5 +1,7 @@
 package tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail;
 
+import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.Node;
+
 import java.util.Stack;
 
 /**
@@ -20,7 +22,7 @@ public class WithStack {
         }
         //打印
         while(!stack.empty()) {
-            System.out.println(stack.pop().val);
+            System.out.print(stack.pop().val);
         }
     }
 }
