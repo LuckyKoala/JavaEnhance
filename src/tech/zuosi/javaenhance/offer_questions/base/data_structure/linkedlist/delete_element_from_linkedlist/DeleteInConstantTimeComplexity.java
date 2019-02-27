@@ -8,7 +8,7 @@ import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.Nod
  * 对于尾节点，需要遍历查找上一个节点，时间复杂度为O(n)
  * 平均下来，时间复杂度为O(1)，满足要求
  */
-public class Solution {
+public class DeleteInConstantTimeComplexity {
     public void deleteNode(Node first, Node nodeToBeDeleted) {
         if(first==null || nodeToBeDeleted==null) return;
 

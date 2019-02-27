@@ -1,6 +1,6 @@
 package tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist;
 
-import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.delete_element_from_linkedlist.Solution;
+import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.delete_element_from_linkedlist.DeleteInConstantTimeComplexity;
 import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail.ReverseLinkedList;
 import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail.WithRecursiveInvoke;
 import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail.WithStack;
@@ -26,14 +26,14 @@ public class TestMain {
         Node b = new Node(3, a);
         Node c = new Node(5, b);
         withStack.print(c);System.out.println();
-        Solution solution = new Solution();
-        solution.deleteNode(c, a);
+        DeleteInConstantTimeComplexity deleteInConstantTimeComplexity = new DeleteInConstantTimeComplexity();
+        deleteInConstantTimeComplexity.deleteNode(c, a);
         withStack.print(c);System.out.println();
-        solution.deleteNode(c, b);
+        deleteInConstantTimeComplexity.deleteNode(c, b);
         withStack.print(c);System.out.println();
-        solution.deleteNode(c, c);
+        deleteInConstantTimeComplexity.deleteNode(c, c);
         withStack.print(c);System.out.println();
-        solution.deleteNode(c, null);
+        deleteInConstantTimeComplexity.deleteNode(c, null);
         withStack.print(c);System.out.println();
     }
 }
