@@ -1,6 +1,7 @@
 package tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist;
 
 import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.delete_element_from_linkedlist.DeleteInConstantTimeComplexity;
+import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.merge_sorted_linkedlist.MergeSortedLinkedList;
 import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail.WithReverseLinkedList;
 import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail.WithRecursiveInvoke;
 import tech.zuosi.javaenhance.offer_questions.base.data_structure.linkedlist.print_linkedlist_from_tail.WithStack;
@@ -44,5 +45,15 @@ public class TestMain {
         Node newList = new ReverseLinkedList().reverse(list);
         System.out.println(newList.val);
         System.out.println(new ReverseWithRecursiveInvoke().reverse(newList).val);
+
+        //合并有序列表
+        Node aNode = new Node(1, new Node(3, new Node(5, new Node(7, null))));
+        Node bNode = new Node(1, new Node(2, new Node(4, new Node(9, null))));
+        MergeSortedLinkedList mergeSortedLinkedList = new MergeSortedLinkedList();
+        withStack.print(mergeSortedLinkedList.mergeInterative(aNode, bNode));
+        System.out.println();
+        aNode = new Node(1, new Node(3, new Node(5, new Node(7, null))));
+        bNode = new Node(1, new Node(2, new Node(4, new Node(9, null))));
+        withStack.print(mergeSortedLinkedList.mergeRecursive(aNode, bNode));
     }
 }
