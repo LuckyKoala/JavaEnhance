@@ -11,7 +11,7 @@ import static java.nio.file.StandardOpenOption.WRITE;
 public class ByteBufferExample {
     public static void main(String[] args) {
         String s = "I was here!\n";
-        byte data[] = s.getBytes();
+        byte[] data = s.getBytes();
         ByteBuffer out = ByteBuffer.wrap(data);
 
         ByteBuffer copy = ByteBuffer.allocate(12);

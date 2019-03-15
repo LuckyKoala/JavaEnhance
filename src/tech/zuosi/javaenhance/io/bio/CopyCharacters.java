@@ -1,4 +1,4 @@
-package tech.zuosi.javaenhance.io.streams;
+package tech.zuosi.javaenhance.io.bio;
 
 import java.io.*;
 
