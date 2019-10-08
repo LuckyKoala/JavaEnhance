@@ -16,7 +16,7 @@ public class WithNormalLoop implements Solution {
         if(a==null || b==null || b.length==0) return -1;
 
         int lastIndex = -1;
-        for(int i=0; i<a.length; i++) {
+        for(int i=0; i<a.length-b.length+1; i++) {
             if(matchSubset(a, b, i)) lastIndex=i;
         }
 
