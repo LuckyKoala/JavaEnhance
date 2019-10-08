@@ -1,7 +1,5 @@
 package tech.zuosi.javaenhance.sugar.foreach;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -18,7 +16,6 @@ public class FakeList<E> implements Iterable<E> {
         this.size = size;
     }
 
-    @NotNull
     public Iterator<E> iterator() {
         return new Itr();
     }

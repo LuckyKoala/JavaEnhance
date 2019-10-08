@@ -1,7 +1,5 @@
 package tech.zuosi.javaenhance.util;
 
-import org.jetbrains.annotations.NotNull;
-
 /**
  * 用于格式化输出基本数据类型的二进制表示
  */
@@ -45,7 +43,6 @@ public class BinaryFormatter {
         return zerosStr + Integer.toBinaryString(i);
     }
 
-    @NotNull
     private static String getZerosString(int numberOfLeadingZeros) {
         StringBuilder builder = new StringBuilder(numberOfLeadingZeros);
         for (int j = 0; j < numberOfLeadingZeros; j++) {
